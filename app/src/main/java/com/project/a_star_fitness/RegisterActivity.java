@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            edu.neu.a_star_fitness.User user = new edu.neu.a_star_fitness.User(email);
+                            User user = new User(email);
                             // add user from auth to firebase
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
