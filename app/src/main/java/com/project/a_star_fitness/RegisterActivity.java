@@ -36,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         registerUser = findViewById(R.id.register_user);
         emailAddress = findViewById(R.id.email_address);
         passWord = findViewById(R.id.password);
-
         progressBar = findViewById(R.id.progress_bar);
 
     }
