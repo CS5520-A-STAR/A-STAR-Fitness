@@ -81,7 +81,7 @@ public class ProfileUpdateActivity extends AppCompatActivity {
             Log.d("This is userId: ", id);
 
 
-            edu.neu.a_star_fitness.DAOUser dao = new edu.neu.a_star_fitness.DAOUser();
+            DAOUser dao = new DAOUser();
 
 
             root.child(id).child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
