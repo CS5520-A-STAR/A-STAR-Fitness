@@ -17,7 +17,7 @@ public class DAOUser {
         databaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public Task<Void> add(edu.neu.a_star_fitness.User user, String email) {
+    public Task<Void> add(User user, String email) {
         return databaseReference.child("Users").child(email).setValue(user);
         //return databaseReference.push().setValue(user);
     }
