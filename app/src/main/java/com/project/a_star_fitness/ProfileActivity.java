@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit);
 
 
-        edu.neu.a_star_fitness.DAOUser dao = new edu.neu.a_star_fitness.DAOUser();
+        DAOUser dao = new DAOUser();
 
         submit.setOnClickListener(new View.OnClickListener() {
 
