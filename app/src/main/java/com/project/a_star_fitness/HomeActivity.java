@@ -8,10 +8,14 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.project.a_star_fitness.profile.ProfileUpdateActivity;
+import com.project.a_star_fitness.record.RecordActivity;
+import com.project.a_star_fitness.register.LoginActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private Button logout;
     Button buttonUpdate;
+    private Button goToRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +25,13 @@ public class HomeActivity extends AppCompatActivity {
         logout = findViewById(R.id.signOut);
 
         buttonUpdate = findViewById(R.id.buttonUpdate);
+        goToRecord = findViewById(R.id.go_to_record);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
             }
         });
 
@@ -37,5 +42,13 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        goToRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, RecordActivity.class));
+            }
+        });
+
     }
 }

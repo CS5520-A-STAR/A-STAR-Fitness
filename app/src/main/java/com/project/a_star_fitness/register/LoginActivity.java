@@ -1,4 +1,4 @@
-package com.project.a_star_fitness;
+package com.project.a_star_fitness.register;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +18,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.project.a_star_fitness.HomeActivity;
+import com.project.a_star_fitness.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private TextView register;
     private Button signIn;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
         register = findViewById(R.id.register);
@@ -81,18 +83,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if (user.isEmailVerified()) {
                         // redirect to user profile
-                        Toast.makeText(MainActivity.this, "We'll enter new activity", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "We'll enter new activity", Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
-                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
 
                     } else {
                         user.sendEmailVerification();
-                        Toast.makeText(MainActivity.this, "Please check your email to verify your account!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Please check your email to verify your account!", Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
                     }
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }

@@ -1,4 +1,4 @@
-package com.project.a_star_fitness;
+package com.project.a_star_fitness.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +20,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.project.a_star_fitness.DAOUser;
+import com.project.a_star_fitness.register.LoginActivity;
+import com.project.a_star_fitness.R;
 
 import java.util.HashMap;
 
@@ -253,7 +256,7 @@ public class ProfileUpdateActivity extends AppCompatActivity {
                         dao.update(id, hashMap).addOnSuccessListener(suc -> {
                             Toast.makeText(getApplicationContext(), "Update Successful", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(ProfileUpdateActivity.this, MainActivity.class);
+                            Intent intent = new Intent(ProfileUpdateActivity.this, LoginActivity.class);
                             startActivity(intent);
 
                         }).addOnFailureListener(er -> {

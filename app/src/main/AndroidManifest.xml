@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.a_star_fitness">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,19 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ASTARFitness">
         <activity
-            android:name=".ProfileUpdateActivity"
+            android:name=".record.AddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".record.RecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ProfileUpdateActivity"
             android:exported="true" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".profile.ProfileActivity"
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".register.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".register.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

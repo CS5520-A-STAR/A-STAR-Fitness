@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".record.RecordActivity">
+
+    <TextView
+        android:id="@+id/textMyNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Notes"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/textMyNotes">
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/inputSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:hint="search note"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="@dimen/_13ssp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/imageAddNote"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_add_outline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ListView
+        android:id="@+id/list_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSearch" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

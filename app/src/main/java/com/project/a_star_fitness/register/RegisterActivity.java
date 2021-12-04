@@ -1,4 +1,4 @@
-package com.project.a_star_fitness;
+package com.project.a_star_fitness.register;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.project.a_star_fitness.R;
+import com.project.a_star_fitness.User;
+import com.project.a_star_fitness.profile.ProfileActivity;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
