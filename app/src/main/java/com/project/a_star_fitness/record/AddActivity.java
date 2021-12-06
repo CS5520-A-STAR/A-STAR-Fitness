@@ -102,7 +102,7 @@ public class AddActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
                 FirebaseDatabase.getInstance().getReference("Records")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).push()
                         .setValue(record).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

@@ -14,6 +14,15 @@ public class Record {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Record{" +
+                "type='" + type + '\'' +
+                ", duration='" + duration + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
     public String getType() {
         return type;
     }
