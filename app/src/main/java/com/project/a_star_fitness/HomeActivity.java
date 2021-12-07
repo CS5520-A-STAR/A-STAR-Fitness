@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button goToRecord;
     private Button post_list_btn;
     private Button body;
+    private Button diet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         buttonUpdate = findViewById(R.id.buttonUpdate);
         goToRecord = findViewById(R.id.go_to_record);
         body = findViewById(R.id.Body);
+        diet = findViewById(R.id.dietButton);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +65,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, BodyActivity.class));
+            }
+        });
+        diet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, DietActivity.class));
             }
         });
     }
