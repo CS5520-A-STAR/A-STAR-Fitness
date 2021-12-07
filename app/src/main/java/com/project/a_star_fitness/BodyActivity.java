@@ -35,6 +35,7 @@ public class BodyActivity extends AppCompatActivity {
     private TextView neckInput;
     private TextView waistInput;
     private TextView hipInput;
+    private TextView bodyFatView;
 
     private String gender;
     private String age;
@@ -57,6 +58,7 @@ public class BodyActivity extends AppCompatActivity {
         neckInput = findViewById(R.id.neckInput);
         waistInput = findViewById(R.id.waistInput);
         hipInput = findViewById(R.id.hipInput);
+        bodyFatView = findViewById(R.id.bodyFatView);
         bodyFatButton = findViewById(R.id.bodyFatButton);
 
         bmiButton.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +72,8 @@ public class BodyActivity extends AppCompatActivity {
         bodyFatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GetBMITask bmiTask = new GetBMITask();
-                bmiTask.execute();
+                GetBodyFatTask bodyFatTask = new GetBodyFatTask();
+                bodyFatTask.execute();
             }
         });
 
@@ -208,50 +210,56 @@ public class BodyActivity extends AppCompatActivity {
         }
     }
 
-//    private class GetBodyFatTask extends AsyncTask<String, String, String> {
-//        @Override
-//        protected String doInBackground(String... url) {
-//            String result = null;
-//
-//            try {
-//                OkHttpClient client = new OkHttpClient();
-//
-//                Request request = new Request.Builder()
-//                        .url("https://fitness-calculator.p.rapidapi.com/bodyfat?age=" + + "&gender=male&weight=70&height=178&neck=50&waist=96&hip=92")
-//                        .get()
-//                        .addHeader("x-rapidapi-host", "fitness-calculator.p.rapidapi.com")
-//                        .addHeader("x-rapidapi-key", "e3da6c4171mshb00bfe19ec86053p195a81jsn82f7c1f971ba")
-//                        .build();
-//
-//                Response response = client.newCall(request).execute();
-//
-//                Log.d("Got Response","got response");
-//
-//                //Log.i("BMI result",response.body().string());
-//
-//                //String responseString = response.body().string();
-//                result = response.body().string();
-//
-//            } catch (Exception e) {
-//                Log.d("Exception", "Caught Exception: " + e.getMessage());
-//            }
-//
-//            return result;
-//        }
-//
-//        protected void onPostExecute(String result){
-//            Log.i("BMI result on post execute", result);
-//
-//            try {
-//                JSONObject myObject = new JSONObject(result);
-//                JSONObject userData = myObject.getJSONObject("data");
-//                String bmiValue = userData.getDouble("bmi") + "";
-//                Log.d("JSON data", userData.getDouble("bmi") + "");
-//                bmiView.setText(bmiValue);
-//            }catch (Exception e) {
-//                Log.d("JSON Error", "");
-//                bmiView.setText("000");
-//            }
-//        }
-//    }
+    private class GetBodyFatTask extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... url) {
+            String result = null;
+
+            try {
+                OkHttpClient client = new OkHttpClient();
+
+                int weightInKg = (int) (Integer.parseInt(weightView.getText().toString()) / 2.2);
+
+                Request request = new Request.Builder()
+                        .url("https://fitness-calculator.p.rapidapi.com/bodyfat?age=" + age
+                                + "&gender=" + gender + "&weight=" + weightInKg + "&height="
+                                + heightView.getText().toString() + "&neck="
+                                + neckInput.getText().toString() + "&waist="
+                                + waistInput.getText().toString() + "&hip=" + hipInput.getText().toString())
+                        .get()
+                        .addHeader("x-rapidapi-host", "fitness-calculator.p.rapidapi.com")
+                        .addHeader("x-rapidapi-key", "e3da6c4171mshb00bfe19ec86053p195a81jsn82f7c1f971ba")
+                        .build();
+
+                Response response = client.newCall(request).execute();
+
+                Log.d("Got Response","got response");
+
+                result = response.body().string();
+
+            } catch (Exception e) {
+                Log.d("Exception", "Caught Exception: " + e.getMessage());
+            }
+
+            return result;
+        }
+
+        protected void onPostExecute(String result){
+            Log.i("BodyFat result on post execute", result);
+
+            try {
+                JSONObject myObject = new JSONObject(result);
+                JSONObject userData = myObject.getJSONObject("data");
+
+                String bodyFatValue = userData.getDouble("Body Fat (U.S. Navy Method)") + "";
+
+                Log.d("JSON data", bodyFatValue);
+
+                bodyFatView.setText(bodyFatValue);
+            }catch (Exception e) {
+                Log.d("JSON Error", "");
+                bodyFatView.setText("000");
+            }
+        }
+    }
 }
