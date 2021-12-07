@@ -28,6 +28,7 @@ public class DietActivity extends AppCompatActivity {
     private TextView proteinView;
     private TextView fatView;
     private TextView carbsView;
+    private TextView calorieView;
 
     private String gender;
     private String age;
@@ -46,6 +47,8 @@ public class DietActivity extends AppCompatActivity {
         proteinView = findViewById(R.id.proteinView);
         fatView = findViewById(R.id.fatView);
         carbsView = findViewById(R.id.carbsView);
+        calorieView = findViewById(R.id.calorieView);
+
 
         macroButton = findViewById(R.id.macroButton);
 
@@ -194,6 +197,9 @@ public class DietActivity extends AppCompatActivity {
                 JSONObject userData = myObject.getJSONObject("data");
 
                 String calorie = userData.getDouble("calorie") + "";
+
+                calorieView.setText(calorie);
+
                 JSONObject macrosData = userData.getJSONObject("balanced");
 
                 String protein = macrosData.getDouble("protein") + "";
