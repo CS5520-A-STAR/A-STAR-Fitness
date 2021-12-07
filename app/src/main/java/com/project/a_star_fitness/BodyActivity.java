@@ -23,18 +23,24 @@ import com.squareup.okhttp.Response;
 
 import org.json.JSONObject;
 
+import java.util.Locale;
+
 public class BodyActivity extends AppCompatActivity {
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("Users");
     private TextView bmiView;
     private TextView heightView;
     private TextView weightView;
-    private TextView ageView;
+//    private TextView ageView;
 
-    private String height;
-    private String weight;
+    private TextView neckInput;
+    private TextView waistInput;
+    private TextView hipInput;
+
+    private String gender;
     private String age;
 
     private Button bmiButton;
+    private Button bodyFatButton;
 
 
     @Override
@@ -43,12 +49,25 @@ public class BodyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_body);
 
         bmiView = findViewById(R.id.bmiView);
-        ageView = findViewById(R.id.ageView);
+//        ageView = findViewById(R.id.ageView);
         heightView = findViewById(R.id.heightView);
         weightView = findViewById(R.id.weightView);
         bmiButton = findViewById(R.id.bmiButton);
 
+        neckInput = findViewById(R.id.neckInput);
+        waistInput = findViewById(R.id.waistInput);
+        hipInput = findViewById(R.id.hipInput);
+        bodyFatButton = findViewById(R.id.bodyFatButton);
+
         bmiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GetBMITask bmiTask = new GetBMITask();
+                bmiTask.execute();
+            }
+        });
+
+        bodyFatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 GetBMITask bmiTask = new GetBMITask();
@@ -73,8 +92,8 @@ public class BodyActivity extends AppCompatActivity {
                         Log.e("firebase", "Error getting data", task.getException());
                     } else {
                         final String defaultAge = String.valueOf(task.getResult().getValue());
+//                        ageView.setText(defaultAge);
                         age = defaultAge;
-                        ageView.setText(defaultAge);
                     }
                 }
             });
@@ -86,10 +105,7 @@ public class BodyActivity extends AppCompatActivity {
                         Log.e("firebase", "Error getting data", task.getException());
                     } else {
                         final String defaultHeight = String.valueOf(task.getResult().getValue());
-                        height = defaultHeight;
                         heightView.setText(defaultHeight);
-                        //Log.d("This is user height: ", defaultHeight);
-                        //bmiView.setText(defaultHeight);
                     }
                 }
             });
@@ -101,27 +117,28 @@ public class BodyActivity extends AppCompatActivity {
                         Log.e("firebase", "Error getting data", task.getException());
                     } else {
                         final String defaultWeight = String.valueOf(task.getResult().getValue());
-                        weight = defaultWeight;
                         weightView.setText(defaultWeight);
                     }
                 }
             });
 
-//            root.child(id).child("gender").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//                @Override
-//                public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                    if (!task.isSuccessful()) {
-//                        Log.e("firebase", "Error getting data", task.getException());
-//                    } else {
-//                        final String defaultGender = String.valueOf(task.getResult().getValue());
-////                        if (defaultGender.equals("Male")) {
-////                            gender.check(R.id.male);
-////                        } else if (defaultGender.equals("Female")) {
-////                            gender.check(R.id.female);
-////                        }
-//                    }
-//                }
-//            });
+            root.child(id).child("gender").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    } else {
+                        final String defaultGender = String.valueOf(task.getResult().getValue());
+                        gender = defaultGender.toLowerCase();
+
+//                        if (defaultGender.equals("Male")) {
+//                            gender.check(R.id.male);
+//                        } else if (defaultGender.equals("Female")) {
+//                            gender.check(R.id.female);
+//                        }
+                    }
+                }
+            });
 
 //            GetBMITask bmiTask = new GetBMITask();
 //            bmiTask.execute();
@@ -146,14 +163,14 @@ public class BodyActivity extends AppCompatActivity {
 
                 Request request = new Request.Builder()
                         .url("https://fitness-calculator.p.rapidapi.com/bmi?age=" +
-                                ageView.getText().toString() + "&weight=" + weightInKg
+                                age + "&weight=" + weightInKg
                                 + "&height=" + heightView.getText().toString())
                         .get()
                         .addHeader("x-rapidapi-host", "fitness-calculator.p.rapidapi.com")
                         .addHeader("x-rapidapi-key", "e3da6c4171mshb00bfe19ec86053p195a81jsn82f7c1f971ba")
                         .build();
 
-                Log.d("Params","age is " + ageView.getText().toString() + " weight is "
+                Log.d("Params","age is " + age + " weight is "
                         + weightView.getText().toString() + " height is " + heightView.getText().toString());
 
                 Response response = client.newCall(request).execute();
@@ -190,4 +207,51 @@ public class BodyActivity extends AppCompatActivity {
 //            Log.i("data", data);
         }
     }
+
+//    private class GetBodyFatTask extends AsyncTask<String, String, String> {
+//        @Override
+//        protected String doInBackground(String... url) {
+//            String result = null;
+//
+//            try {
+//                OkHttpClient client = new OkHttpClient();
+//
+//                Request request = new Request.Builder()
+//                        .url("https://fitness-calculator.p.rapidapi.com/bodyfat?age=" + + "&gender=male&weight=70&height=178&neck=50&waist=96&hip=92")
+//                        .get()
+//                        .addHeader("x-rapidapi-host", "fitness-calculator.p.rapidapi.com")
+//                        .addHeader("x-rapidapi-key", "e3da6c4171mshb00bfe19ec86053p195a81jsn82f7c1f971ba")
+//                        .build();
+//
+//                Response response = client.newCall(request).execute();
+//
+//                Log.d("Got Response","got response");
+//
+//                //Log.i("BMI result",response.body().string());
+//
+//                //String responseString = response.body().string();
+//                result = response.body().string();
+//
+//            } catch (Exception e) {
+//                Log.d("Exception", "Caught Exception: " + e.getMessage());
+//            }
+//
+//            return result;
+//        }
+//
+//        protected void onPostExecute(String result){
+//            Log.i("BMI result on post execute", result);
+//
+//            try {
+//                JSONObject myObject = new JSONObject(result);
+//                JSONObject userData = myObject.getJSONObject("data");
+//                String bmiValue = userData.getDouble("bmi") + "";
+//                Log.d("JSON data", userData.getDouble("bmi") + "");
+//                bmiView.setText(bmiValue);
+//            }catch (Exception e) {
+//                Log.d("JSON Error", "");
+//                bmiView.setText("000");
+//            }
+//        }
+//    }
 }

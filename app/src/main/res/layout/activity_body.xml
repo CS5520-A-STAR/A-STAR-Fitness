@@ -7,7 +7,7 @@
     tools:context=".BodyActivity">
 
     <TextView
-        android:id="@+id/bmiView2"
+        android:id="@+id/bodyFatView"
         android:layout_width="94dp"
         android:layout_height="36dp"
         android:layout_marginStart="164dp"
@@ -18,26 +18,24 @@
         app:layout_constraintTop_toBottomOf="@+id/weightView" />
 
     <TextView
-        android:id="@+id/hipTitle2"
+        android:id="@+id/bodyFatTitle"
         android:layout_width="110dp"
         android:layout_height="0dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="516dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="17dp"
-        android:layout_marginBottom="16dp"
         android:text="Body Fat:"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/neckInput"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/hipTitle" />
 
     <EditText
         android:id="@+id/hipInput"
-        android:layout_width="100dp"
+        android:layout_width="102dp"
         android:layout_height="48dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="152dp"
         android:ems="10"
         android:hint="Hip"
@@ -50,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="456dp"
+        android:layout_marginTop="448dp"
         android:layout_marginEnd="17dp"
         android:text="Hip:"
         android:textSize="24sp"
@@ -142,28 +140,27 @@
         android:id="@+id/neckInput"
         android:layout_width="100dp"
         android:layout_height="48dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="152dp"
-        android:layout_marginBottom="367dp"
         android:ems="10"
         android:hint="Neck"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmiButton"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintTop_toBottomOf="@+id/bmiButton" />
 
     <TextView
         android:id="@+id/heightView"
         android:layout_width="94dp"
-        android:layout_height="0dp"
+        android:layout_height="37dp"
         android:layout_marginStart="156dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="427dp"
         android:hint="Height"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/bodyFatButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/weightView"
@@ -214,14 +211,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bodyFatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="113dp"
+        android:layout_marginTop="22dp"
         android:text="Estimate Body Fat"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hipTitle2" />
+        app:layout_constraintTop_toBottomOf="@+id/bodyFatView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
