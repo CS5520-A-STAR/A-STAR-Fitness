@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     Button buttonUpdate;
     private Button goToRecord;
     private Button post_list_btn;
+    private Button body;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         post_list_btn=findViewById(R.id.post_list_btn);
         buttonUpdate = findViewById(R.id.buttonUpdate);
         goToRecord = findViewById(R.id.go_to_record);
+        body = findViewById(R.id.Body);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +57,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomeActivity.this, Post_list.class));
+            }
+        });
+        body.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, BodyActivity.class));
             }
         });
     }

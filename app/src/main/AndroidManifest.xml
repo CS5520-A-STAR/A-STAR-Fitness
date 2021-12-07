@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ASTARFitness">
         <activity
+            android:name=".BodyActivity"
+            android:exported="true" />
+        <activity
             android:name=".record.AddActivity"
             android:exported="false" />
         <activity
