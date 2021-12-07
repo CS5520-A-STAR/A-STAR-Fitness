@@ -62,7 +62,7 @@ public class RecordActivity extends AppCompatActivity {
                 }
 
 
-                //Log.d("snapshot", snapshot.getValue().toString());
+                // Log.d("snapshot", snapshot.getValue().toString());
 
                 // cast to object
                 // GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {};
