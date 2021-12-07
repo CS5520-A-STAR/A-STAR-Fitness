@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/bodyFatView"
-        android:layout_width="94dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="368dp"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="28dp"
         android:hint="Body Fat"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weightView" />
+        app:layout_constraintTop_toBottomOf="@+id/hipInput" />
 
     <TextView
         android:id="@+id/bodyFatTitle"
@@ -27,7 +27,7 @@
         android:text="Body Fat:"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/neckInput"
-        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hipTitle" />
 
@@ -35,53 +35,53 @@
         android:id="@+id/hipInput"
         android:layout_width="102dp"
         android:layout_height="48dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="152dp"
         android:ems="10"
         android:hint="Hip"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmiButton" />
+        app:layout_constraintTop_toBottomOf="@+id/waistInput" />
 
     <TextView
         android:id="@+id/hipTitle"
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="17dp"
         android:text="Hip:"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/neckInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/waistTitle" />
 
     <EditText
         android:id="@+id/waistInput"
         android:layout_width="100dp"
         android:layout_height="48dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="152dp"
         android:ems="10"
         android:hint="Waist"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmiButton" />
+        app:layout_constraintTop_toBottomOf="@+id/neckInput" />
 
     <TextView
         android:id="@+id/waistTitle"
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="17dp"
         android:text="Waist:"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/neckInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/neckTitle" />
 
     <TextView
         android:id="@+id/heightTitle"
@@ -127,26 +127,26 @@
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="324dp"
+        android:layout_marginTop="128dp"
         android:layout_marginEnd="17dp"
         android:text="Neck:"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/neckInput"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/bmiTitle" />
 
     <EditText
         android:id="@+id/neckInput"
         android:layout_width="100dp"
         android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="152dp"
         android:ems="10"
         android:hint="Neck"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmiButton" />
+        app:layout_constraintTop_toBottomOf="@+id/bmiView" />
 
     <TextView
         android:id="@+id/heightView"
