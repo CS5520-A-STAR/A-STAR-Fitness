@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -85,8 +86,6 @@ public class BodyActivity extends AppCompatActivity {
 
             Log.d("This is userId: ", id);
 
-            //DAOUser dao = new DAOUser();
-
             root.child(id).child("age").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -132,18 +131,9 @@ public class BodyActivity extends AppCompatActivity {
                     } else {
                         final String defaultGender = String.valueOf(task.getResult().getValue());
                         gender = defaultGender.toLowerCase();
-
-//                        if (defaultGender.equals("Male")) {
-//                            gender.check(R.id.male);
-//                        } else if (defaultGender.equals("Female")) {
-//                            gender.check(R.id.female);
-//                        }
                     }
                 }
             });
-
-//            GetBMITask bmiTask = new GetBMITask();
-//            bmiTask.execute();
 
         }
         else{
@@ -258,6 +248,7 @@ public class BodyActivity extends AppCompatActivity {
                 bodyFatView.setText(bodyFatValue);
             }catch (Exception e) {
                 Log.d("JSON Error", "");
+                Toast.makeText(getApplicationContext(), "Invalid body data.", Toast.LENGTH_SHORT).show();
                 bodyFatView.setText("000");
             }
         }
