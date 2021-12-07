@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BodyActivity">
+
+    <EditText
+        android:id="@+id/neckInput"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:hint="Neck"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/waistTitle"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Waist:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/neckInput"
+        app:layout_constraintTop_toBottomOf="@+id/neckTitle" />
+
+    <Button
+        android:id="@+id/bodyFatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="72dp"
+        android:text="Estimate Body Fat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bodyFatView" />
+
+    <EditText
+        android:id="@+id/hipInput"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:hint="Hip"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waistInput" />
+
+    <TextView
+        android:id="@+id/neckTitle"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:text="Neck:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/neckInput"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bodyFatTitle"
+        android:layout_width="110dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="Body Fat:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/bodyFatView"
+        app:layout_constraintTop_toBottomOf="@+id/hipTitle" />
+
+    <EditText
+        android:id="@+id/waistInput"
+        android:layout_width="93dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="64dp"
+        android:ems="10"
+        android:hint="Waist"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/neckInput" />
+
+    <TextView
+        android:id="@+id/hipTitle"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Hip:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/neckInput"
+        app:layout_constraintTop_toBottomOf="@+id/waistTitle" />
+
+    <TextView
+        android:id="@+id/bodyFatView"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:hint="Body Fat"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hipInput" />
+
+    <TextView
+        android:id="@+id/bmiTitle"
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="164dp"
+        android:text="BMI:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/bmiView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/heightView"
+        android:layout_width="94dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="48dp"
+        android:hint="Height"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bmiButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="28dp"
+        android:text="Calculate BMI"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmiView" />
+
+    <TextView
+        android:id="@+id/weightTitle"
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="100dp"
+        android:text="Weight:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/weightView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/weightView"
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="100dp"
+        android:hint="Weight"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bmiView"
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="28dp"
+        android:hint="BMI"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weightView" />
+
+    <TextView
+        android:id="@+id/heightTitle"
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:text="Height:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/heightView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ageView"
+        android:layout_width="94dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="312dp"
+        android:hint="Age"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bmiButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
