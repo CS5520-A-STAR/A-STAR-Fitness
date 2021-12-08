@@ -34,7 +34,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentHolder> {
     @Override
     public void onBindViewHolder(CommentHolder holder, int position) {
         Comment currentItem = itemList.get(position);
-
+        holder.comment_user_image.setImageResource(R.drawable.ic_baseline_account_box);
         holder.comment_content.setText(currentItem.getContent());
         holder.comment_time.setText(currentItem.getTime());
         holder.comment_username.setText(currentItem.getAuthor());
