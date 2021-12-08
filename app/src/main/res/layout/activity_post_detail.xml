@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Post_detail">
+    tools:context=".posts.Post_detail">
 
     <ImageView
         android:id="@+id/detail_user_image"
@@ -53,6 +53,7 @@
         android:id="@+id/detail_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_marginTop="3dp"
         android:text="TextView"
         android:textSize="20sp"
