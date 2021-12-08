@@ -71,8 +71,9 @@ public class Post_creation extends AppCompatActivity {
                 post_create_btn.setVisibility(View.INVISIBLE);
                 progressBar.setVisibility(View.VISIBLE);
 
-                if(!edit_title.getText().toString().isEmpty()){
+                if(!edit_title.getText().toString().isEmpty()&&pickedImage!=null){
                     // StorageReference
+
                     StorageReference storageRef = FirebaseStorage.getInstance().getReference().child("blog_image");
                     final StorageReference path=storageRef.child(pickedImage.getLastPathSegment());
                     path.putFile(pickedImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -107,7 +108,14 @@ public class Post_creation extends AppCompatActivity {
 
 
 
-                }else{
+                }else if(!edit_title.getText().toString().isEmpty()&&pickedImage==null){
+                    Post newPost=new Post(edit_title.getText().toString()
+                            ,post_content.getText().toString()
+                            ,"none",currentUser.getEmail(), Calendar.getInstance().getTime().toString());
+                    addPost(newPost);
+
+                }
+                else{
                     Toast.makeText(Post_creation.this,"Invalid Input",Toast.LENGTH_SHORT).show();
                     post_create_btn.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.INVISIBLE);

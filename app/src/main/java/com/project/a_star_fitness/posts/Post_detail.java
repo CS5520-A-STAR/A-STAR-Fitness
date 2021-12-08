@@ -76,7 +76,7 @@ public class Post_detail extends AppCompatActivity {
 //                                    ,post_content.getText().toString()
 //                                    ,link,currentUser.getEmail(), Calendar.getInstance().getTime().toString());
 //                            addPost(newPost);
-            Comment newComment=new Comment(detail_content.getText().toString(),currentUser.getEmail(),Calendar.getInstance().getTime().toString());
+            Comment newComment=new Comment(edit_comment.getText().toString(),currentUser.getEmail(),Calendar.getInstance().getTime().toString());
             addComment(newComment);
 
 
@@ -109,6 +109,7 @@ public class Post_detail extends AppCompatActivity {
         root= FirebaseDatabase.getInstance().getReference().child("comment");
         detail_progressbar=findViewById(R.id.detail_progressbar);
         detail_user_image=findViewById(R.id.detail_user_image);
+        detail_user_image.setImageResource(R.drawable.ic_baseline_account_box);
         detail_username=findViewById(R.id.detail_username);
         detail_time=findViewById(R.id.detail_time);
         detail_image=findViewById(R.id.detail_image);
@@ -122,7 +123,12 @@ public class Post_detail extends AppCompatActivity {
 
         detail_username.setText(curPost.getAuthor());
         detail_time.setText(curPost.getTime());
-        Picasso.get().load(curPost.getPicture()).into(detail_image);
+        if(curPost.getPicture().equals("none")){
+            detail_image.setVisibility(View.GONE);
+        }else {
+            Picasso.get().load(curPost.getPicture()).into(detail_image);
+        }
+
         detail_content.setText(curPost.getContent());
         detail_title.setText(curPost.getTitle());
     }
