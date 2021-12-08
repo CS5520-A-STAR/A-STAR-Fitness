@@ -46,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/comment_user_image"
+            android:gravity="center"
             android:layout_marginTop="5dp"
             android:hint="title"
             android:textSize="20sp" />
@@ -56,6 +57,7 @@
             android:layout_height="98dp"
             android:layout_below="@+id/post_title"
             android:layout_marginTop="5dp"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <TextView
