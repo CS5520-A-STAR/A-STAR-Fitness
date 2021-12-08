@@ -32,8 +32,10 @@
             android:exported="false" />
         <activity
             android:name=".posts.Post_creation"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
+            android:windowSoftInputMode="adjustPan"
             android:name=".posts.Post_detail"
             android:exported="false" />
         <activity
