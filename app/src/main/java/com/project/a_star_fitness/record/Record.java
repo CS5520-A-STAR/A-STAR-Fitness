@@ -16,11 +16,9 @@ public class Record {
 
     @Override
     public String toString() {
-        return "Record{" +
-                "type='" + type + '\'' +
+        return "type='" + type + '\'' +
                 ", duration='" + duration + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+                ", description='" + description + '\'';
     }
 
     public String getType() {

@@ -140,8 +140,11 @@ public class AddActivity extends AppCompatActivity {
         buttonWeather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // cityName = "Boston";
-                weatherDataService.getCityForecastByName("Boston", new WeatherDataService.GetCityForecastByNameCallBack() {
+                if(cityName == null){
+                    cityName = "Boston";
+                }
+
+                weatherDataService.getCityForecastByName(cityName, new WeatherDataService.GetCityForecastByNameCallBack() {
                     @Override
                     public void onError(String message) {
                         Toast.makeText(AddActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();
@@ -209,7 +212,9 @@ public class AddActivity extends AppCompatActivity {
                                                 updatedCity,
                                                 updatedCountry
                                         )
+
                                 );
+                                cityName = updatedCity;
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
