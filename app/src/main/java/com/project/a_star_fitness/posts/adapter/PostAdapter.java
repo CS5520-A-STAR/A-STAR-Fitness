@@ -36,19 +36,25 @@ public class PostAdapter extends RecyclerView.Adapter<PostHolder> {
     @Override
     public void onBindViewHolder(PostHolder holder, int position) {
         Post currentItem = itemList.get(position);
-
+        holder.user_image.setImageResource(R.drawable.ic_baseline_account_box);
         holder.post_content.setText(currentItem.getContent());
         holder.post_title.setText(currentItem.getTitle());
         holder.post_time.setText(currentItem.getTime().toString());
         holder.user_username.setText(currentItem.getAuthor());
-        if(currentItem.getPicture()!=null){
-                    Picasso.get()
-               .load(currentItem.getPicture())
+        if(currentItem.getPicture().equals("none")){
+            holder.post_image.setVisibility(View.GONE);
 
-                .into(holder.post_image);
+        }else if(currentItem.getPicture()!=null){
+            Picasso.get()
+                    .load(currentItem.getPicture())
 
-        }else{
-            holder.post_image.setImageResource(R.drawable.ic_launcher_background);
+                    .into(holder.post_image);
+
+
+        }
+        else {
+            holder.post_image.setImageResource(R.drawable.ic_baseline_block);
+
         }
 
 
