@@ -2,7 +2,7 @@
 
 ### App Name: A-Star Fitness
 
-Group Member:
+## Group Member:
 Guangpeng Wu, Hongming Zhang, HungChit Ngai, Shangjun Jiang
 
 App description:
